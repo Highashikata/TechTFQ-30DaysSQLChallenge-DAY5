@@ -13,6 +13,7 @@ Using the given Salary, Income and Deduction tables, first write an sql query to
 
 
 **DDL**
+```
 drop table if exists salary;
 create table salary
 (
@@ -39,10 +40,11 @@ create table deduction
 	deduction	varchar(20),
 	percentage	int
 );
-
+```
 
 
 **DML**
+```
 insert into salary values(1, 'Rohan', 5000);
 insert into salary values(2, 'Alex', 6000);
 insert into salary values(3, 'Maryam', 7000);
@@ -52,6 +54,6 @@ insert into income values(3,'Others', 6);
 insert into deduction values(1,'Insurance', 5);
 insert into deduction values(2,'Health', 6);
 insert into deduction values(3,'House', 4);
-
+```
 
 **DQL**
