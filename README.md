@@ -125,3 +125,12 @@ select * from emp_transaction;
 
 
 ```
+
+
+Now we are going to pivot our table in order to get the expected output
+
+We need first to activate our extention to be able to use the Pivot function
+```
+-- Extension activation
+-- CREATE EXTENSION IF NOT EXISTS tablefunc;
+```
