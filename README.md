@@ -134,3 +134,55 @@ We need first to activate our extention to be able to use the Pivot function
 -- Extension activation
 -- CREATE EXTENSION IF NOT EXISTS tablefunc;
 ```
+
+
+
+**/* This is basically the syntax of a crosstab query 
+
+select *
+from crosstab('Base Query', 'List of Columns that we want to see in our expected output')
+as resultat(Final Cols Datatypes)
+
+NB: - we need minimum 3 columns.
+	- The 1st column needs to be a unique Identifier.
+	- We need to put an order by in the Base Query.
+*/**
+
+```
+SELECT 
+	employee, 
+	allowance, 
+ 	basic,
+	health,
+	insurance,
+	house,
+	others,
+	(basic + allowance + others) as Gross,
+	(insurance + health + house) as Total_deductions,
+	(basic + allowance + others) - (insurance + health + house) as Net_Pay
+FROM crosstab(
+	'SELECT 
+		emp_name, 
+		trns_type, 
+		amount 
+	FROM 
+		emp_transaction 
+	order by 1',
+	'SELECT 
+		distinct trns_type 
+	from 
+		emp_transaction order by trns_type'
+) as result(employee varchar, 
+			allowance numeric, 
+			basic numeric,
+			health numeric, 
+			insurance numeric, 
+			house numeric, 
+			others  numeric
+		   );
+```		   
+
+
+
+
+
