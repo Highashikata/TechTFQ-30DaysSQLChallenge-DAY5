@@ -146,7 +146,7 @@ as resultat(Final Cols Datatypes)
 **NB:** 
 - we need minimum 3 columns.
 - The 1st column needs to be a unique Identifier.
-- - We need to put an order by in the Base Query.
+- We need to put an order by in the Base Query.
 
 
 ```
