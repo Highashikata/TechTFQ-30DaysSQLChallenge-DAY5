@@ -135,9 +135,23 @@ We need first to activate our extention to be able to use the Pivot function
 -- CREATE EXTENSION IF NOT EXISTS tablefunc;
 ```
 
+#### The Pivot CROSSTAB function syntax 
+
+/* This is basically the syntax of a crosstab query 
+
+select *
+from crosstab('Base Query', 'List of Columns that we want to see in our expected output')
+as resultat(Final Cols Datatypes)
+
+NB: - we need minimum 3 columns.
+    - The 1st column needs to be a unique Identifier.
+    - We need to put an order by in the Base Query.
+*/
 
 
-**/* This is basically the syntax of a crosstab query 
+
+```
+/* This is basically the syntax of a crosstab query 
 
 select *
 from crosstab('Base Query', 'List of Columns that we want to see in our expected output')
@@ -146,9 +160,9 @@ as resultat(Final Cols Datatypes)
 NB: - we need minimum 3 columns.
 	- The 1st column needs to be a unique Identifier.
 	- We need to put an order by in the Base Query.
-*/**
+*/
 
-```
+
 SELECT 
 	employee, 
 	allowance, 
